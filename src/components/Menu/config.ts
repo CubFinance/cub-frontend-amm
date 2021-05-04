@@ -4,143 +4,100 @@ const config: MenuEntry[] = [
   {
     label: 'Home',
     icon: 'HomeIcon',
-    href: 'https://pancakeswap.finance/',
+    href: 'http://cubdefi.com/',
   },
   {
     label: 'Trade',
     icon: 'TradeIcon',
-    initialOpenState: true,
-    status: {
-      text: 'MIGRATE',
-      color: 'warning',
-    },
     items: [
       {
-        label: 'LP Migration',
-        href: '/migrate',
-      },
-      {
         label: 'Exchange',
-        href: 'https://exchange.pancakeswap.finance/#/swap',
+        href: 'https://exchange.cubdefi.com/',
       },
       {
         label: 'Liquidity',
-        href: 'https://exchange.pancakeswap.finance/#/pool',
-      },
-      {
-        label: 'V1 Liquidity (Old)',
-        href: '/pool',
+        href: 'https://exchange.cubdefi.com/#/pool',
       },
     ],
   },
   {
     label: 'Farms',
     icon: 'FarmIcon',
-    href: 'https://pancakeswap.finance/farms',
+    href: '/farms',
   },
   {
-    label: 'Pools',
+    label: 'Dens',
     icon: 'PoolIcon',
-    href: 'https://pancakeswap.finance/pools',
+    href: '/dens',
   },
   {
-    label: 'Prediction',
-    icon: 'PredictionsIcon',
-    href: 'https://pancakeswap.finance/prediction',
+    label: 'Kingdoms',
+    icon: 'PawIcon',
+    href: '/kingdoms',
     status: {
-      text: 'BETA',
+      text: 'SOON',
       color: 'warning',
     },
   },
   {
-    label: 'Lottery',
-    icon: 'TicketIcon',
-    href: 'https://pancakeswap.finance/lottery',
-  },
-  {
-    label: 'Collectibles',
+    label: 'LeoBridge',
     icon: 'NftIcon',
-    href: 'https://pancakeswap.finance/nft',
-  },
-  {
-    label: 'Team Battle',
-    icon: 'TeamBattleIcon',
-    href: 'https://pancakeswap.finance/competition',
-  },
-  {
-    label: 'Teams & Profile',
-    icon: 'GroupsIcon',
-    items: [
-      {
-        label: 'Leaderboard',
-        href: 'https://pancakeswap.finance/teams',
-      },
-      {
-        label: 'Task Center',
-        href: 'https://pancakeswap.finance/profile/tasks',
-      },
-      {
-        label: 'Your Profile',
-        href: 'https://pancakeswap.finance/profile',
-      },
-    ],
+    href: "https://bridge.cubdefi.com",
+    status: {
+      text: 'SOON',
+      color: 'warning',
+    },
   },
   {
     label: 'Info',
     icon: 'InfoIcon',
     items: [
       {
-        label: 'Overview',
-        href: 'https://pancakeswap.info',
+        label: 'GitHub',
+        href: 'https://github.com/CubFinance',
       },
       {
-        label: 'Tokens',
-        href: 'https://pancakeswap.info/tokens',
+        label: 'PancakeSwap',
+        href: 'https://pancakeswap.info/token/0x50d809c74e0b8e49e7b4c65bb3109abe3ff4c1c1',
       },
       {
-        label: 'Pairs',
-        href: 'https://pancakeswap.info/pairs',
+        label: 'CoinMarketCap',
+        href: 'https://coinmarketcap.com/currencies/cub-finance/',
       },
       {
-        label: 'Accounts',
-        href: 'https://pancakeswap.info/accounts',
+        label: 'CoinGecko',
+        href: 'https://www.coingecko.com/en/coins/cub-finance',
+      },
+      {
+        label: 'AstroTools',
+        href: 'https://app.astrotools.io/pancake-pair-explorer/0x50d809c74e0b8e49e7b4c65bb3109abe3ff4c1c1',
       },
     ],
   },
   {
-    label: 'IFO',
-    icon: 'IfoIcon',
-    href: 'https://pancakeswap.finance/ifo',
+    label: 'Docs',
+    icon: 'TicketIcon',
+    href: 'https://docs.cubdefi.com/',
   },
   {
-    label: 'More',
+    label: 'Roadmap',
     icon: 'MoreIcon',
-    items: [
-      {
-        label: 'Contact',
-        href: 'https://docs.pancakeswap.finance/contact-us',
-      },
-      {
-        label: 'Voting',
-        href: 'https://voting.pancakeswap.finance',
-      },
-      {
-        label: 'Github',
-        href: 'https://github.com/pancakeswap',
-      },
-      {
-        label: 'Docs',
-        href: 'https://docs.pancakeswap.finance',
-      },
-      {
-        label: 'Blog',
-        href: 'https://pancakeswap.medium.com',
-      },
-      {
-        label: 'Merch',
-        href: 'https://pancakeswap.creator-spring.com/',
-      },
-    ],
+    href: 'https://docs.cubdefi.com/roadmap',
+  },
+  {
+    label: "Tokenized Blogging",
+    icon: "TokenizeIcon",
+    href: "https://leofinance.io/",
+  },
+  {
+    label: "Blog",
+    icon: "BlogIcon",
+    href: "https://leofinance.io/@leofinance",
+  },
+  {
+    label: 'CertiK Audit',
+    icon: 'AuditIcon',
+    href: 'https://www.certik.org/projects/cubfinance',
   },
 ]
 
