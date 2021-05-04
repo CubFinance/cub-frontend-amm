@@ -4,7 +4,7 @@ const config: MenuEntry[] = [
   {
     label: 'Home',
     icon: 'HomeIcon',
-    href: 'http://cubdefi.com/',
+    href: 'https://cubdefi.com/',
   },
   {
     label: 'Trade',
@@ -23,17 +23,17 @@ const config: MenuEntry[] = [
   {
     label: 'Farms',
     icon: 'FarmIcon',
-    href: '/farms',
+    href: 'https://cubdefi.com/farms',
   },
   {
     label: 'Dens',
     icon: 'PoolIcon',
-    href: '/dens',
+    href: 'https://cubdefi.com/dens',
   },
   {
     label: 'Kingdoms',
     icon: 'PawIcon',
-    href: '/kingdoms',
+    href: 'https://cubdefi.com/kingdoms',
     status: {
       text: 'SOON',
       color: 'warning',
