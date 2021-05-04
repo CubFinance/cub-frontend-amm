@@ -7,6 +7,14 @@ type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
 }
 
+export const CUB = new Token(
+  ChainId.MAINNET,
+  '0x50d809c74e0b8e49e7b4c65bb3109abe3ff4c1c1',
+  18,
+  'CUB',
+  'Cub Finance Token'
+)
+
 export const CAKE = new Token(
   ChainId.MAINNET,
   '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
