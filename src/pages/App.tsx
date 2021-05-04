@@ -137,7 +137,7 @@ export default function App() {
                   </Web3ReactManager>
                 </BodyWrapper>
               </Menu>
-              <VersionBar />
+              {/* <VersionBar /> */}
             </TranslationsContext.Provider>
           </LanguageContext.Provider>
         </AppWrapper>
