@@ -1,13 +1,13 @@
-import React, { useContext, useCallback } from 'react'
-import styled, { ThemeContext } from 'styled-components'
+import React, { useCallback } from 'react'
+import styled from 'styled-components'
+import { Text } from '@pancakeswap-libs/uikit'
+import useI18n from 'hooks/useI18n'
 import useENS from '../../hooks/useENS'
 import { useActiveWeb3React } from '../../hooks'
-import { ExternalLink, TYPE } from '../Shared'
+import { ExternalLink } from '../Shared'
 import { AutoColumn } from '../Column'
 import { RowBetween } from '../Row'
-import { getEtherscanLink } from '../../utils'
-
-const { black: Black } = TYPE
+import { getBscScanLink } from '../../utils'
 
 const InputPanel = styled.div`
   display: flex;
@@ -80,8 +80,7 @@ export default function AddressInputPanel({
   onChange: (value: string) => void
 }) {
   const { chainId } = useActiveWeb3React()
-  const theme = useContext(ThemeContext)
-
+  const TranslateString = useI18n()
   const { address, loading, name } = useENS(value)
 
   const handleInput = useCallback(
@@ -101,12 +100,12 @@ export default function AddressInputPanel({
         <InputContainer>
           <AutoColumn gap="md">
             <RowBetween>
-              <Black color={theme.colors.textSubtle} fontWeight={500} fontSize={14}>
-                Recipient
-              </Black>
+              <Text color="textSubtle" fontWeight={500} fontSize="14px">
+                {TranslateString(1138, 'Recipient')}
+              </Text>
               {address && chainId && (
-                <ExternalLink href={getEtherscanLink(chainId, name ?? address, 'address')} style={{ fontSize: '14px' }}>
-                  (View on bscscan)
+                <ExternalLink href={getBscScanLink(chainId, name ?? address, 'address')} style={{ fontSize: '14px' }}>
+                  {TranslateString(116, '(View on BscScan)')}
                 </ExternalLink>
               )}
             </RowBetween>
@@ -117,7 +116,7 @@ export default function AddressInputPanel({
               autoCorrect="off"
               autoCapitalize="off"
               spellCheck="false"
-              placeholder="Wallet Address or ENS name"
+              placeholder={TranslateString(1140, 'Wallet Address or ENS name')}
               error={error}
               pattern="^(0x[a-fA-F0-9]{40})$"
               onChange={handleInput}
