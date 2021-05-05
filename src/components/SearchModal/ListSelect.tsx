@@ -2,17 +2,16 @@ import React, { memo, useCallback, useMemo, useRef, useState } from 'react'
 import { ArrowLeft } from 'react-feather'
 import { usePopper } from 'react-popper'
 import { useDispatch, useSelector } from 'react-redux'
-import { Button, Text } from '@pancakeswap-libs/uikit'
+import { Button, Text, ChevronDownIcon, CloseIcon } from '@pancakeswap-libs/uikit'
 import styled from 'styled-components'
-import { ReactComponent as DropDown } from '../../assets/images/dropdown.svg'
+import useI18n from 'hooks/useI18n'
 import { useFetchListCallback } from '../../hooks/useFetchListCallback'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
-
 import useToggle from '../../hooks/useToggle'
 import { AppDispatch, AppState } from '../../state'
 import { acceptListUpdate, removeList, selectList } from '../../state/lists/actions'
 import { useSelectedListUrl } from '../../state/lists/hooks'
-import { CloseIcon, ExternalLink, LinkStyledButton, TYPE } from '../Shared'
+import { ExternalLink, LinkStyledButton } from '../Shared'
 import listVersionLabel from '../../utils/listVersionLabel'
 import { parseENSAddress } from '../../utils/parseENSAddress'
 import uriToHttp from '../../utils/uriToHttp'
@@ -21,8 +20,6 @@ import ListLogo from '../ListLogo'
 import QuestionHelper from '../QuestionHelper'
 import Row, { RowBetween } from '../Row'
 import { PaddedColumn, SearchInput, Separator, SeparatorDark } from './styleds'
-
-const { error: Error } = TYPE
 
 const UnpaddedLinkStyledButton = styled(LinkStyledButton)`
   padding: 0;
@@ -126,7 +123,7 @@ const ListRow = memo(function ListRow({ listUrl, onBack }: { listUrl: string; on
       dispatch(removeList(listUrl))
     }
   }, [dispatch, listUrl])
-
+  const TranslateString = useI18n()
   if (!list) return null
 
   return (
@@ -162,7 +159,7 @@ const ListRow = memo(function ListRow({ listUrl, onBack }: { listUrl: string; on
             onClick={toggle}
             variant="secondary"
           >
-            <DropDown />
+            <ChevronDownIcon />
           </Button>
         </div>
 
@@ -170,7 +167,9 @@ const ListRow = memo(function ListRow({ listUrl, onBack }: { listUrl: string; on
           <PopoverContainer show ref={setPopperElement as any} style={styles.popper} {...attributes.popper}>
             <div>{list && listVersionLabel(list.version)}</div>
             <SeparatorDark />
-            <ExternalLink href={`https://tokenlists.org/token-list?url=${listUrl}`}>View list</ExternalLink>
+            <ExternalLink href={`https://tokenlists.org/token-list?url=${listUrl}`}>
+              {TranslateString(1206, 'View list')}
+            </ExternalLink>
             <UnpaddedLinkStyledButton onClick={handleRemoveList} disabled={Object.keys(listsByUrl).length === 1}>
               Remove list
             </UnpaddedLinkStyledButton>
@@ -268,7 +267,7 @@ export function ListSelect({ onDismiss, onBack }: { onDismiss: () => void; onBac
         return 0
       })
   }, [lists])
-
+  const TranslateString = useI18n()
   return (
     <Column style={{ width: '100%', flex: '1 1' }}>
       <PaddedColumn>
@@ -276,7 +275,7 @@ export function ListSelect({ onDismiss, onBack }: { onDismiss: () => void; onBac
           <div>
             <ArrowLeft style={{ cursor: 'pointer' }} onClick={onBack} />
           </div>
-          <Text fontSize="20px">Manage Lists</Text>
+          <Text fontSize="20px">{TranslateString(1208, 'Manage Lists')}</Text>
           <CloseIcon onClick={onDismiss} />
         </RowBetween>
       </PaddedColumn>
@@ -286,7 +285,12 @@ export function ListSelect({ onDismiss, onBack }: { onDismiss: () => void; onBac
       <PaddedColumn gap="14px">
         <Text bold>
           Add a list{' '}
-          <QuestionHelper text="Token lists are an open specification for lists of BEP20 tokens. You can use any token list by entering its URL below. Beware that third party token lists can contain fake or malicious BEP20 tokens." />
+          <QuestionHelper
+            text={TranslateString(
+              999,
+              'Token lists are an open specification for lists of BEP20 tokens. You can use any token list by entering its URL below. Beware that third party token lists can contain fake or malicious BEP20 tokens.'
+            )}
+          />
         </Text>
         <Row>
           <SearchInput
@@ -303,9 +307,9 @@ export function ListSelect({ onDismiss, onBack }: { onDismiss: () => void; onBac
           </Button>
         </Row>
         {addError ? (
-          <Error title={addError} style={{ textOverflow: 'ellipsis', overflow: 'hidden' }} error>
+          <Text color="failure" title={addError} style={{ textOverflow: 'ellipsis', overflow: 'hidden' }}>
             {addError}
-          </Error>
+          </Text>
         ) : null}
       </PaddedColumn>
 

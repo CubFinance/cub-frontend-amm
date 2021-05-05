@@ -10,7 +10,7 @@ sftp-config.json
 /coverage
 
 # production
-
+#/build
 
 # misc
 .DS_Store
@@ -37,4 +37,3 @@ cypress/screenshots
 cypress/fixtures/example.json
 
 .eslintcache
-/.github/

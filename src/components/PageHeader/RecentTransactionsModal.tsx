@@ -1,13 +1,14 @@
 import React, { useMemo } from 'react'
 import { CheckmarkCircleIcon, ErrorIcon, Flex, LinkExternal, Text, Modal, Button } from '@pancakeswap-libs/uikit'
 import { useActiveWeb3React } from 'hooks'
-import { getEtherscanLink } from 'utils'
+import { getBscScanLink } from 'utils'
 import { isTransactionRecent, useAllTransactions } from 'state/transactions/hooks'
 import { TransactionDetails } from 'state/transactions/reducer'
 import Loader from 'components/Loader'
 
 type RecentTransactionsModalProps = {
   onDismiss?: () => void
+  translateString: (translationId: number, fallback: string) => string
 }
 
 // TODO: Fix UI Kit typings
@@ -29,7 +30,7 @@ const getRowStatus = (sortedRecentTransaction: TransactionDetails) => {
   return { icon: <ErrorIcon color="failure" />, color: 'failure' }
 }
 
-const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss }: RecentTransactionsModalProps) => {
+const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss, translateString }: RecentTransactionsModalProps) => {
   const { account, chainId } = useActiveWeb3React()
   const allTransactions = useAllTransactions()
 
@@ -40,13 +41,13 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss }: RecentTransac
   }, [allTransactions])
 
   return (
-    <Modal title="Recent Transactions" onDismiss={onDismiss}>
+    <Modal title={translateString(1202, 'Recent transactions')} onDismiss={onDismiss}>
       {!account && (
         <Flex justifyContent="center" flexDirection="column" alignItems="center">
           <Text mb="8px" bold>
             Please connect your wallet to view your recent transactions
           </Text>
-          <Button variant="tertiary" size="sm" onClick={onDismiss}>
+          <Button variant="tertiary" scale="sm" onClick={onDismiss}>
             Close
           </Button>
         </Flex>
@@ -56,7 +57,7 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss }: RecentTransac
           <Text mb="8px" bold>
             No recent transactions
           </Text>
-          <Button variant="tertiary" size="sm" onClick={onDismiss}>
+          <Button variant="tertiary" scale="sm" onClick={onDismiss}>
             Close
           </Button>
         </Flex>
@@ -70,7 +71,7 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss }: RecentTransac
           return (
             <>
               <Flex key={hash} alignItems="center" justifyContent="space-between" mb="4px">
-                <LinkExternal href={getEtherscanLink(chainId, hash, 'transaction')} color={color}>
+                <LinkExternal href={getBscScanLink(chainId, hash, 'transaction')} color={color}>
                   {summary ?? hash}
                 </LinkExternal>
                 {icon}

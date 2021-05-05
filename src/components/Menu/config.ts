@@ -4,7 +4,7 @@ const config: MenuEntry[] = [
   {
     label: 'Home',
     icon: 'HomeIcon',
-    href: 'http://cubdefi.com/',
+    href: 'https://cubdefi.com/',
   },
   {
     label: 'Trade',
@@ -31,6 +31,15 @@ const config: MenuEntry[] = [
     href: 'https://cubdefi.com/dens',
   },
   {
+    label: 'Kingdoms',
+    icon: 'PawIcon',
+    href: 'https://cubdefi.com/kingdoms',
+    status: {
+      text: 'SOON',
+      color: 'warning',
+    },
+  },
+  {
     label: 'LeoBridge',
     icon: 'NftIcon',
     href: "https://bridge.cubdefi.com",
@@ -51,6 +60,14 @@ const config: MenuEntry[] = [
         label: 'CoinMarketCap',
         href: 'https://coinmarketcap.com/currencies/cub-finance/',
       },
+      {
+        label: 'CoinGecko',
+        href: 'https://www.coingecko.com/en/coins/cub-finance',
+      },
+      {
+        label: 'AstroTools',
+        href: 'https://app.astrotools.io/pancake-pair-explorer/0x50d809c74e0b8e49e7b4c65bb3109abe3ff4c1c1',
+      },
     ],
   },
   {
@@ -65,7 +82,7 @@ const config: MenuEntry[] = [
   },
   {
     label: "Tokenized Blogging",
-    icon: "PawIcon",
+    icon: "TokenizeIcon",
     href: "https://leofinance.io/",
   },
   {
@@ -74,9 +91,9 @@ const config: MenuEntry[] = [
     href: "https://leofinance.io/@leofinance",
   },
   {
-    label: 'CertiK Audit (Coming Soon)',
+    label: 'CertiK Audit',
     icon: 'AuditIcon',
-    href: '#',
+    href: 'https://www.certik.org/projects/cubfinance',
   },
 ]
 
