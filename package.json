@@ -8,7 +8,7 @@
     "@crowdin/crowdin-api-client": "^1.8.16",
     "@ethersproject/experimental": "^5.0.1",
     "@pancakeswap-libs/sdk": "1.0.1",
-    "@pancakeswap-libs/uikit": "CubFinance/cub-uikit-v2#72029b7c8efa5bcc9c188961e3007dd2673f9a59",
+    "@pancakeswap-libs/uikit": "CubFinance/cub-uikit#829925b7662d4982d236cfd8b2458ec3dd654f25",
     "@popperjs/core": "^2.4.4",
     "@reach/dialog": "^0.10.3",
     "@reach/portal": "^0.10.3",
