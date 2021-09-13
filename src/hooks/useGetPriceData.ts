@@ -12,7 +12,9 @@ type ApiResponse = {
   }
 }
 
-const api = 'https://api.pancakeswap.info/api/tokens'
+// const api = 'https://api.pancakeswap.info/api/tokens'
+const api = 'https://api.coingecko.com/api/v3/coins/cub-finance'
+
 
 const useGetPriceData = () => {
   const [data, setData] = useState<ApiResponse | null>(null)
